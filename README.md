@@ -28,7 +28,13 @@ pip install -r requirements.txt
 ```python -m grpc_tools.protoc  -I.  --python_out=.  --grpc_python_out=.  helloworld.proto```
 
 
-## run client/server
+## run client/server 
+```
+python greeter_server.py
+python greeter_client.py
+```
+
+## run client/server asyncio
 ```
 python async_greeter_server.py
 python async_greeter_client.py
