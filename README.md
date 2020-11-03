@@ -13,6 +13,7 @@ https://github.com/grpc/grpc
 ```
 python -m pip install grpcio
 python -m pip install grpcio-tools
+python -m pip install protobuf
 ```
 
 ## linux/macos/wsl
@@ -22,7 +23,12 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-# run client/server
+# DevOps
+## code gen
+```python -m grpc_tools.protoc  -I.  --python_out=.  --grpc_python_out=.  helloworld.proto```
+
+
+## run client/server
 ```
 python async_greeter_server.py
 python async_greeter_client.py
