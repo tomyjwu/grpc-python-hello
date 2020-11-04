@@ -21,12 +21,14 @@ import grpc
 import helloworld_pb2
 import helloworld_pb2_grpc
 
-
+count=0
 class Greeter(helloworld_pb2_grpc.GreeterServicer):
 
     def SayHello(self, request, context):
-        return helloworld_pb2.HelloReply(message='Hello, %s!' % request.name)
-
+        global count
+        count+=1
+        return helloworld_pb2.HelloReply(message='Hello, %s!' % request.name,count=count)
+    
 
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
